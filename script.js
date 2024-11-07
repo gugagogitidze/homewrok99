@@ -1,23 +1,24 @@
-document.getElementById("addInfoButton").addEventListener("click", function() {
-    const info = prompt("გთხოვთ შეიყვანეთ ინფორმაცია:");
-
-    if (info) {
-        addListItem(info);
-    } else {
-        alert("შეიყვანეთ ინფორმაცია.");
-    }
+document.getElementById('infobtn').addEventListener('click', function() {
+  const info = prompt('შეიყვანეთ ინფორმაცია:');
+  
+  if (info) {
+      addInfoToList(info);
+  } else {
+      alert('შეიყვანეთ ინფორმაცია!!!!!');
+  }
 });
 
-function addListItem(info) {
-    const li = document.createElement("li");
-    li.textContent = info;
-
-    const deleteButton = document.createElement("button");
-    deleteButton.textContent = "Delete";
-    deleteButton.addEventListener("click", function() {
-        li.remove();
-    });
-
-    li.appendChild(deleteButton);
-    document.getElementById("infoList").appendChild(li);
+function addInfoToList(info) {
+  const ul = document.getElementById('listul');
+  const li = document.createElement('li');
+  li.textContent = info;
+  
+  const deleteButton = document.createElement('button');
+  deleteButton.textContent = 'წაშლა';
+  deleteButton.addEventListener('click', function() {
+      ul.removeChild(li);
+  });
+  
+  li.appendChild(deleteButton);
+  ul.appendChild(li);
 }
